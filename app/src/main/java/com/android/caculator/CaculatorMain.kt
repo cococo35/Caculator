@@ -19,8 +19,8 @@ fun main() {
 
     println("두 숫자를 입력해 주세요!")
 
-    var num1 = readLine()!!.toInt()
-    var num2 = readLine()!!.toInt()
+    var num1 = readLine()!!.toDouble()
+    var num2 = readLine()!!.toDouble()
 
     when(sign) {
         1 -> println("덧셈결과: ${calc.add(num1, num2)}")
@@ -33,23 +33,23 @@ fun main() {
 
 class Calculator {
 
-    fun add(num1: Int, num2: Int): Int {
+    fun add(num1: Double, num2: Double): Double {
         return num1 + num2
     }
 
-    fun minus(num1: Int, num2: Int): Int {
+    fun minus(num1: Double, num2: Double): Double {
         return num1 - num2
     }
 
-    fun multifly(num1: Int, num2: Int): Int {
+    fun multifly(num1: Double, num2: Double): Double {
         return num1 * num2
     }
 
-    fun divide(num1: Int, num2: Int): Int {
+    fun divide(num1: Double, num2: Double): Double {
         return num1 / num2
     }
-
-    fun remain(num1: Int, num2: Int): Int {
+    
+    fun remain(num1: Double, num2: Double): Double {
         return num1 % num2
     }
 }
