@@ -11,9 +11,9 @@ fun main() {
         return
     }
 
-    println("두 수를 입력해 주세요!")
-
     var Work = Caculator()
+    Work.start()
+
     var result = 0.0
 
     when(sign) {
@@ -55,9 +55,8 @@ fun main() {
             return
         }
 
-        println("숫자를 입력해 주세요!")
-        
         var Work = Caculator()
+        Work.start()
 
         when (sign3) {
             1 -> {
@@ -94,7 +93,11 @@ fun main() {
     }
 }
 
-open class Caculator() {}
+open class Caculator() {
+    fun start() {
+        println("두 수를 입력해 주세요!")
+    }
+}
 
 class AddOperation() : Caculator() {
     fun Add(num1: Double, num2: Double): Double {
