@@ -101,8 +101,8 @@ open class Caculator() {
     }
 }
 
-class AddOperation() : Caculator() {
-    fun Add(num1: Double, num2: Double): Double {
+class AddOperation() : Caculator(), AbstractOperation {
+    override fun Add(num1: Double, num2: Double): Double {
         return num1 + num2
     }
 }
