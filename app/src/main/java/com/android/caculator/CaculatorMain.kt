@@ -13,30 +13,28 @@ fun main() {
 
     println("두 수를 입력해 주세요!")
 
-    val num1 = readLine()!!.toDouble()
-    val num2 = readLine()!!.toDouble()
     var Work = Caculator()
     var result = 0.0
 
     when(sign) {
         1 -> {
-            Work = AddOperation(num1, num2)
-            result = Work.Add(num1, num2)
+            Work = AddOperation()
+            result = Work.Add(readLine()!!.toDouble(), readLine()!!.toDouble())
             println("계산결과: ${result}")
         }
         2 -> {
-            Work = SubstractOperation(num1, num2)
-            result = Work.Minus(num1, num2)
+            Work = SubstractOperation()
+            result = Work.Minus(readLine()!!.toDouble(), readLine()!!.toDouble())
             println("계산결과: ${result}")
         }
         3 -> {
-            Work = MultiplyOperation(num1, num2)
-            result = Work.Multiply(num1, num2)
+            Work = MultiplyOperation()
+            result = Work.Multiply(readLine()!!.toDouble(), readLine()!!.toDouble())
             println("계산결과: ${result}")
         }
         4 -> {
-            Work = DivideOperation(num1, num2)
-            result = Work.Divide(num1, num2)
+            Work = DivideOperation()
+            result = Work.Divide(readLine()!!.toDouble(), readLine()!!.toDouble())
             println("계산결과: ${result}")
         }
     }
@@ -58,32 +56,31 @@ fun main() {
         }
 
         println("숫자를 입력해 주세요!")
-
-        val num3 = readLine()!!.toDouble()
+        
         var Work = Caculator()
 
         when (sign3) {
             1 -> {
-                Work = AddOperation(result, num3)
-                result = Work.Add(result, num3)
+                Work = AddOperation()
+                result = Work.Add(result, readLine()!!.toDouble())
                 println("계산결과: ${result}")
             }
 
             2 -> {
-                Work = SubstractOperation(result, num3)
-                result = Work.Minus(result, num3)
+                Work = SubstractOperation()
+                result = Work.Minus(result, readLine()!!.toDouble())
                 println("계산결과: ${result}")
             }
 
             3 -> {
-                Work = MultiplyOperation(result, num3)
-                result = Work.Multiply(result, num3)
+                Work = MultiplyOperation()
+                result = Work.Multiply(result, readLine()!!.toDouble())
                 println("계산결과: ${result}")
             }
 
             4 -> {
-                Work = DivideOperation(result, num3)
-                result = Work.Divide(result, num3)
+                Work = DivideOperation()
+                result = Work.Divide(result, readLine()!!.toDouble())
                 println("계산결과: ${result}")
             }
         }
@@ -99,25 +96,25 @@ fun main() {
 
 open class Caculator() {}
 
-class AddOperation(num1: Double, num2: Double) : Caculator() {
+class AddOperation() : Caculator() {
     fun Add(num1: Double, num2: Double): Double {
         return num1 + num2
     }
 }
 
-class SubstractOperation(num1: Double, num2: Double) : Caculator() {
+class SubstractOperation() : Caculator() {
     fun Minus(num1: Double, num2: Double): Double {
         return num1 - num2
     }
 }
 
-class MultiplyOperation(num1: Double, num2: Double) : Caculator() {
+class MultiplyOperation() : Caculator() {
     fun Multiply(num1: Double, num2: Double): Double {
         return num1 * num2
     }
 }
 
-class DivideOperation(num1: Double, num2: Double) : Caculator() {
+class DivideOperation() : Caculator() {
     fun Divide(num1: Double, num2: Double): Double {
         if(num2.toInt() == 0) println("0으로 나눌 수 없습니다!")
         return num1 / num2
