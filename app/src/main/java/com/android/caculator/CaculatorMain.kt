@@ -40,8 +40,8 @@ fun main() {
 
     println("1: 계산 이어서 하기, -1: 계산 그만하기")
 
-    val sign2 = readLine()!!.toInt()
-    if(sign2 == -1) return
+    var ContinueOrStop = readLine()!!.toInt()
+    if(ContinueOrStop == -1) return
 
     while(true) {
         Work.method()
@@ -83,10 +83,10 @@ fun main() {
         }
 
         println("1: 계산 이어서 하기, -1: 계산 그만하기")
-        val sign4 = readLine()!!.toInt()
+        ContinueOrStop = readLine()!!.toInt()
 
-        if(sign4 == 1) continue
-        else if(sign4 == -1) return
+        if(ContinueOrStop == 1) continue
+        else if(ContinueOrStop == -1) return
         else return
     }
 }
