@@ -4,14 +4,19 @@ fun main() {
     println("계산 방법을 선택해 주세요!")
     println("1: +, 2: -, 3: *, 4: /")
 
-    var sign = readLine()!!.toInt()
+    val sign = readLine()!!.toInt()
+
+    if (sign > 5 || sign < 1) {
+        println("올바른 숫자를 입력해 주세요!")
+        return
+    }
 
     println("두 수를 입력해 주세요!")
 
-    var num1 = readLine()!!.toDouble()
-    var num2 = readLine()!!.toDouble()
-    var Work = Caculator(num1, num2)
-    var result: Double = 0.0
+    val num1 = readLine()!!.toDouble()
+    val num2 = readLine()!!.toDouble()
+    var Work = Caculator()
+    var result = 0.0
 
     when(sign) {
         1 -> {
@@ -38,14 +43,14 @@ fun main() {
 
     println("1: 계산 이어서 하기, -1: 계산 그만하기")
 
-    var sign2 = readLine()!!.toInt()
+    val sign2 = readLine()!!.toInt()
     if(sign2 == -1) return
 
     while(true) {
         println("계산 방법을 선택해 주세요!")
         println("1: +, 2: -, 3: *, 4: /")
 
-        var sign3 = readLine()!!.toInt()
+        val sign3 = readLine()!!.toInt()
 
         if (sign3 > 5 || sign3 < 1) {
             println("올바른 숫자를 입력해 주세요!")
@@ -54,8 +59,8 @@ fun main() {
 
         println("숫자를 입력해 주세요!")
 
-        var num3 = readLine()!!.toDouble()
-        var Work = Caculator(result, num3)
+        val num3 = readLine()!!.toDouble()
+        var Work = Caculator()
 
         when (sign3) {
             1 -> {
@@ -84,7 +89,7 @@ fun main() {
         }
 
         println("1: 계산 이어서 하기, -1: 계산 그만하기")
-        var sign4 = readLine()!!.toInt()
+        val sign4 = readLine()!!.toInt()
 
         if(sign4 == 1) continue
         else if(sign4 == -1) return
@@ -92,36 +97,29 @@ fun main() {
     }
 }
 
-open class Caculator(num1: Double, num2: Double) {
-    var num1: Double = 0.0
-    var num2: Double = 0.0
+open class Caculator() {}
 
-    init {
-        this.num1 = num1
-        this.num2 = num2
-    }
-}
-
-class AddOperation(num1: Double, num2: Double) : Caculator(num1, num2) {
+class AddOperation(num1: Double, num2: Double) : Caculator() {
     fun Add(num1: Double, num2: Double): Double {
         return num1 + num2
     }
 }
 
-class SubstractOperation(num1: Double, num2: Double) : Caculator(num1, num2) {
+class SubstractOperation(num1: Double, num2: Double) : Caculator() {
     fun Minus(num1: Double, num2: Double): Double {
         return num1 - num2
     }
 }
 
-class MultiplyOperation(num1: Double, num2: Double) : Caculator(num1, num2) {
+class MultiplyOperation(num1: Double, num2: Double) : Caculator() {
     fun Multiply(num1: Double, num2: Double): Double {
         return num1 * num2
     }
 }
 
-class DivideOperation(num1: Double, num2: Double) : Caculator(num1, num2) {
+class DivideOperation(num1: Double, num2: Double) : Caculator() {
     fun Divide(num1: Double, num2: Double): Double {
+        if(num2.toInt() == 0) println("0으로 나눌 수 없습니다!")
         return num1 / num2
     }
 }
