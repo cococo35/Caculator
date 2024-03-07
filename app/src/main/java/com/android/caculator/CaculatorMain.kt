@@ -1,8 +1,10 @@
 package com.android.caculator
 
 fun main() {
-    println("계산 방법을 선택해 주세요!")
-    println("1: +, 2: -, 3: *, 4: /")
+    var result = 0.0
+    var Work = Caculator()
+
+    Work.method()
 
     val sign = readLine()!!.toInt()
 
@@ -11,10 +13,7 @@ fun main() {
         return
     }
 
-    var Work = Caculator()
     Work.start()
-
-    var result = 0.0
 
     when(sign) {
         1 -> {
@@ -45,8 +44,7 @@ fun main() {
     if(sign2 == -1) return
 
     while(true) {
-        println("계산 방법을 선택해 주세요!")
-        println("1: +, 2: -, 3: *, 4: /")
+        Work.method()
 
         val sign3 = readLine()!!.toInt()
 
@@ -94,6 +92,10 @@ fun main() {
 }
 
 open class Caculator() {
+    fun method() {
+        println("계산 방법을 선택해 주세요!")
+        println("1: +, 2: -, 3: *, 4: /")
+    }
     fun start() {
         println("두 수를 입력해 주세요!")
     }
