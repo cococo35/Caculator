@@ -1,8 +1,5 @@
 package com.android.caculator
 
-interface AbstractOperation {
-    fun Add()
-    fun Minus()
-    fun Multiply()
-    fun Divide()
+abstract class AbstractOperation {
+    abstract fun Operate(num1: Double, num2: Double): Double
 }

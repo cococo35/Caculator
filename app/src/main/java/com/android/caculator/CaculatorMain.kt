@@ -2,7 +2,7 @@ package com.android.caculator
 
 fun main() {
     var result = 0.0
-    var Work = Caculator()
+    var Work = Caculator(AddOperation())
 
     Work.method()
 
@@ -17,23 +17,23 @@ fun main() {
 
     when(sign) {
         1 -> {
-            Work = AddOperation()
-            result = Work.Add(readLine()!!.toDouble(), readLine()!!.toDouble())
+            Work = Caculator(AddOperation())
+            result = Work.Operate(readLine()!!.toDouble(), readLine()!!.toDouble())
             println("계산결과: ${result}")
         }
         2 -> {
-            Work = SubstractOperation()
-            result = Work.Minus(readLine()!!.toDouble(), readLine()!!.toDouble())
+            Work = Caculator(SubstractOperation())
+            result = Work.Operate(readLine()!!.toDouble(), readLine()!!.toDouble())
             println("계산결과: ${result}")
         }
         3 -> {
-            Work = MultiplyOperation()
-            result = Work.Multiply(readLine()!!.toDouble(), readLine()!!.toDouble())
+            Work = Caculator(MultiplyOperation())
+            result = Work.Operate(readLine()!!.toDouble(), readLine()!!.toDouble())
             println("계산결과: ${result}")
         }
         4 -> {
-            Work = DivideOperation()
-            result = Work.Divide(readLine()!!.toDouble(), readLine()!!.toDouble())
+            Work = Caculator(DivideOperation())
+            result = Work.Operate(readLine()!!.toDouble(), readLine()!!.toDouble())
             println("계산결과: ${result}")
         }
     }
@@ -53,31 +53,31 @@ fun main() {
             return
         }
 
-        var Work = Caculator()
+        var Work = Caculator(AddOperation())
         Work.start()
 
         when (sign3) {
             1 -> {
-                Work = AddOperation()
-                result = Work.Add(result, readLine()!!.toDouble())
+                Work = Caculator(AddOperation())
+                result = Work.Operate(result, readLine()!!.toDouble())
                 println("계산결과: ${result}")
             }
 
             2 -> {
-                Work = SubstractOperation()
-                result = Work.Minus(result, readLine()!!.toDouble())
+                Work = Caculator(SubstractOperation())
+                result = Work.Operate(result, readLine()!!.toDouble())
                 println("계산결과: ${result}")
             }
 
             3 -> {
-                Work = MultiplyOperation()
-                result = Work.Multiply(result, readLine()!!.toDouble())
+                Work = Caculator(MultiplyOperation())
+                result = Work.Operate(result, readLine()!!.toDouble())
                 println("계산결과: ${result}")
             }
 
             4 -> {
-                Work = DivideOperation()
-                result = Work.Divide(result, readLine()!!.toDouble())
+                Work = Caculator(DivideOperation())
+                result = Work.Operate(result, readLine()!!.toDouble())
                 println("계산결과: ${result}")
             }
         }
@@ -90,38 +90,4 @@ fun main() {
         else return
     }
 }
-
-open class Caculator() {
-    fun method() {
-        println("계산 방법을 선택해 주세요!")
-        println("1: +, 2: -, 3: *, 4: /")
-    }
-    fun start() {
-        println("두 수를 입력해 주세요!")
-    }
-}
-
-class AddOperation() : Caculator(), AbstractOperation {
-    override fun Add(num1: Double, num2: Double): Double {
-        return num1 + num2
-    }
-}
-
-class SubstractOperation() : Caculator() {
-    fun Minus(num1: Double, num2: Double): Double {
-        return num1 - num2
-    }
-}
-
-class MultiplyOperation() : Caculator() {
-    fun Multiply(num1: Double, num2: Double): Double {
-        return num1 * num2
-    }
-}
-
-class DivideOperation() : Caculator() {
-    fun Divide(num1: Double, num2: Double): Double {
-        if(num2.toInt() == 0) println("0으로 나눌 수 없습니다!")
-        return num1 / num2
-    }
-}
+//응용하고 실제로 사용하려면 많이 연습해야할 것 같다..
